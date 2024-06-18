@@ -1,39 +1,28 @@
-// Datatable1.js
 "use client";
 import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { CSVLink } from 'react-csv';
-import EditModal from './EditModal_datatable1';
 
 const Datatable1 = ({ title, columns, data, details, headers }) => {
   const [filterText, setFilterText] = useState('');
   const [dataItems, setDataItems] = useState(data);
   const [editing, setEditing] = useState(null);
-  const [show, setShow] = useState(false);
-  const [formData, setFormData] = useState({ title: '', body: '', userId: '' });
 
   const filteredItems = dataItems.filter(
     item => item.title && item.title.toLowerCase().includes(filterText.toLowerCase()) ||
-      item.body && item.body.toLowerCase().includes(filterText.toLowerCase()) ||
-      item.userId && item.userId.toString().includes(filterText.toLowerCase())
+      item.year && item.year.toLowerCase().includes(filterText.toLowerCase()) ||
+      item.test && item.test.toLowerCase().includes(filterText.toLowerCase())
   );
 
-  const handleEdit = (row) => {
-    setEditing(row.id);
-    setFormData({ title: row.title, body: row.body, userId: row.userId });
-    setShow(true);
+  const handleEdit = (id) => {
+    setEditing(id);
   };
 
-  const handleSave = () => {
+  const handleSave = (id, updatedData) => {
     setDataItems(prevData =>
-      prevData.map(item => (item.id === editing ? { ...item, ...formData } : item))
+      prevData.map(item => (item.id === id ? { ...item, ...updatedData } : item))
     );
     setEditing(null);
-    setShow(false);
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const columnsWithEdit = [
@@ -41,9 +30,21 @@ const Datatable1 = ({ title, columns, data, details, headers }) => {
     {
       name: 'Edit',
       cell: row => (
-        <button className="btn btn-primary" onClick={() => handleEdit(row)}>
-          Edit
-        </button>
+        editing === row.id ? (
+          <button
+            className="btn btn-success"
+            onClick={() => handleSave(row.id, { title: 'New Title', year: '2020', test: 'New Test' })}
+          >
+            Save
+          </button>
+        ) : (
+          <button
+            className="btn btn-primary"
+            onClick={() => handleEdit(row.id)}
+          >
+            Edit
+          </button>
+        )
       ),
       ignoreRowClick: true,
       allowOverflow: true,
@@ -82,14 +83,6 @@ const Datatable1 = ({ title, columns, data, details, headers }) => {
           />
         </div>
       </div>
-      
-      <EditModal 
-        show={show} 
-        handleClose={() => setShow(false)} 
-        formData={formData} 
-        handleChange={handleChange} 
-        handleSave={handleSave} 
-      />
     </>
   );
 }

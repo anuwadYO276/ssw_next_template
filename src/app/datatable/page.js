@@ -44,8 +44,8 @@ export default function Datatable() {
 
   const headers = [
     { label: 'Title', key: 'title' },
-    { label: 'Year', key: 'year' },
-    { label: 'Test', key: 'test' },
+    { label: 'body', key: 'body' },
+    { label: 'User ID', key: 'userId' },
   ];
   // const title = "Datatable Search";
   const details = "A lightweight, extendable, dependency-free javascript HTML table plugin.";

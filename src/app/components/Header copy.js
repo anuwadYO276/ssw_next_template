@@ -16,13 +16,9 @@ const Header = () => {
       <Head>
         <title>Next.js Bootstrap</title>
       </Head>
-    <header className="css-er44ln">
-      <div className="container">
-       
+
       <nav className="navbar navbar-expand-lg navbar-light bg-light-two">
-        <Link href="/" className="navbar-brand">Next.js</Link>
-
-
+        <Link href="/" className="navbar-brand">Next.js Bootstrap</Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -36,41 +32,39 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-
         <div className={`collapse navbar-collapse ${isDropdownOpen ? 'show' : ''}`} id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link href="/" className="nav-link">Dashboard</Link>
+              <Link href="/" className="nav-link">Home</Link>
             </li>
             <li className="nav-item">
-              <Link href="/cards" className="nav-link">Cards</Link>
+              <Link href="/about" className="nav-link">About</Link>
             </li>
             <li className="nav-item">
-              <Link href="/datatable" className="nav-link">DataTable</Link>
+              <Link href="/contact" className="nav-link">Contact</Link>
             </li>
-            {/* <li className={`nav-item dropdown ${isDropdownOpen ? 'show' : ''}`}>
+            <li className={`nav-item dropdown ${isDropdownOpen ? 'show' : ''}`}>
               <div
                 className="nav-link dropdown-toggle"
                 role="button"
                 onClick={toggleDropdown}
                 aria-expanded={isDropdownOpen ? 'true' : 'false'}
               >
-                Components
+                Dropdown
               </div>
               <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
-                <Link href="/pages/table" className="dropdown-item">Accordion</Link>
-                <Link href="/dropdown-item-2" className="dropdown-item">Alerts</Link>
-                <Link href="/dropdown-item-2" className="dropdown-item">Badges</Link>
-                <Link href="/dropdown-item-2" className="dropdown-item">Buttons</Link>
-                <Link href="/dropdown-item-2" className="dropdown-item">Cards</Link>
+                <Link href="/pages/table" className="dropdown-item">
+                
+                table
+                </Link>
+                <Link href="/dropdown-item-2" className="dropdown-item">
+                    Dropdown Item 2
+                </Link>
               </div>
-            </li> */}
+            </li>
           </ul>
         </div>
       </nav>
-
-      </div>
-    </header>
 
      
     </>

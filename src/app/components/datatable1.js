@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { CSVLink } from 'react-csv';
 import EditModal from './EditModal_datatable1';
-
+import Swal from 'sweetalert2';
 const Datatable1 = ({ title, columns, data, details, headers }) => {
   const [filterText, setFilterText] = useState('');
   const [dataItems, setDataItems] = useState(data);
@@ -48,21 +48,56 @@ const Datatable1 = ({ title, columns, data, details, headers }) => {
       ignoreRowClick: true,
       allowOverflow: true,
       button: true,
+    },
+    {
+      name: 'Delete',
+      cell: row => (
+        <button
+          className="btn btn-danger"
+          onClick={() => handleDelete(row)}
+        >
+          Delete
+        </button>
+      ),
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
     }
+
   ];
+
+
+  const handleDelete = (row) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setDataItems(prevData => prevData.filter(item => item.id !== row.id));
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+  };
 
   return (
     <>
       <div className="card-shadow">
         <div className="card-body">
+       
+
+          
           <h5>{title}</h5>
           <p>{details}</p>
           <div className="row">
-            <div className="col-sm-6 col-md-10 mb-3">
-              <CSVLink data={filteredItems} headers={headers} filename="movie_list.csv">
-                <button className="btn btn-primary">Export CSV</button>
-              </CSVLink>
-            </div>
             <div className="col-sm-6 col-md-2 mb-3">
               <input
                 type="text"
@@ -71,6 +106,11 @@ const Datatable1 = ({ title, columns, data, details, headers }) => {
                 onChange={e => setFilterText(e.target.value)}
                 className="form-control"
               />
+            </div>
+            <div className="col-sm-6 col-md-10 mb-3">
+              <CSVLink data={filteredItems} headers={headers} filename="movie_list.csv">
+                <button className="btn btn-primary">Export</button>
+              </CSVLink>
             </div>
           </div>
           <DataTable

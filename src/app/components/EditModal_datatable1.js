@@ -22,7 +22,8 @@ const EditModal = ({ show, handleClose, formData, handleChange, handleSave }) =>
           <Form.Group controlId="formBody">
             <Form.Label>Body</Form.Label>
             <Form.Control
-              type="text"
+              as="textarea"
+              rows="5"
               name="body"
               value={formData.body}
               onChange={handleChange}

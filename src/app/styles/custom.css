@@ -139,3 +139,20 @@ small, .card-text {
     border-bottom: 0;
     border-left: 0em solid transparent!important;
 }
+
+.navbar-proflie{
+    display: inline;
+}
+.navbar-togglerx {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-togglerx {
+        display: inline;
+    }
+    .navbar-proflie {
+        display: none;
+    }
+    
+}

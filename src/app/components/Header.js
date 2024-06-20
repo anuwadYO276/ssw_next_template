@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser,faBell } from '@fortawesome/free-solid-svg-icons';
+import { faUser,faBell,faListUl } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -23,20 +23,18 @@ const Header = () => {
        
       <nav className="navbar navbar-expand-lg navbar-light bg-light-two">
         <Link href="/" className="navbar-brand">Next.js</Link>
-        {/* <FontAwesomeIcon icon={faCoffee} size="2x" color="green"/> */}
-        <button
-          className="navbar-toggler"
-          type="button"
+        
+        <FontAwesomeIcon 
+          icon={faListUl} 
+          size="lg" 
+          className="me-2 navbar-togglerx"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
           onClick={toggleDropdown}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
+        />
 
         <div className={`collapse navbar-collapse ${isDropdownOpen ? 'show' : ''}`} id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
@@ -50,11 +48,13 @@ const Header = () => {
               <Link href="/datatable" className="nav-link">DataTable</Link>
             </li>
 
-          </ul>
+          </ul> 
         </div>
-        <FontAwesomeIcon icon={faBell} size="lg" />
+        <div className="navbar-proflie">
+          <FontAwesomeIcon icon={faBell} size="lg" />
+        </div>
       </nav>
-
+      
       </div>
     </header>
 

@@ -1,3 +1,6 @@
+body{
+    background-color: #f8f9fa;
+}
 .navbar-toggler {
     outline: none;
 }
@@ -9,4 +12,82 @@
     transform: scale(1.05);
     transition: transform 0.5s;
     
-  }
+}
+
+
+
+.css-er44ln {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: fixed;
+    box-shadow: 45px 76px 113px 7px rgba(112, 144, 176, 0.08);
+    background: white;
+    /* border-color: var(--chakra-colors-transparent); */
+    -webkit-filter: none;
+    filter: none;
+    -webkit-background-position: center;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    z-index: 200;
+    /* border-style: solid; */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 25.6px;
+    -webkit-margin-start: auto;
+    margin-inline-start: auto;
+    -webkit-margin-end: auto;
+    margin-inline-end: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0px);
+    -moz-transform: translate(-50%, 0px);
+    -ms-transform: translate(-50%, 0px);
+    transform: translate(-50%, 0px);
+    width: 100%;
+    top: 0px;
+}
+
+
+.card-shadow{
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-title-color: ;
+    --bs-card-subtitle-color: ;
+    --bs-card-border-width: var(--bs-border-width);
+    --bs-card-border-color: var(--bs-border-color-translucent);
+    --bs-card-border-radius: var(--bs-border-radius);
+    --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: var(--bs-body-bg);
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    color: var(--bs-body-color);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    /* border: var(--bs-card-border-width) solid var(--bs-card-border-color); */
+    box-shadow: 0 2px 6px 0 rgba(67, 89, 113, .12);
+    border-radius: 0.7rem;
+}
+
+/* .Chart-height{
+    min-height: 100.55px;
+} */
+
+.small-text{
+    font-size: 0.7rem;
+}

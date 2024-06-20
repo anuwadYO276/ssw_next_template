@@ -1,7 +1,7 @@
 // pages/index.js
 import Link from 'next/link';
 import Image from 'next/image';
-import Card from '../components/card';
+import Card from '../components/card1';
 export default function Home() {
   return (
     <>

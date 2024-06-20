@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const Card = ({ title, description,imageUrl,price }) => {
+const Card1 = ({ title, description,imageUrl,price }) => {
   return (
     <div className="card card-transform">
       {/* {imageUrl && <img src={imageUrl} className="card-img-top" alt={title} />} */}
@@ -72,4 +72,4 @@ const Card = ({ title, description,imageUrl,price }) => {
   );
 };
 
-export default Card;
+export default Card1;

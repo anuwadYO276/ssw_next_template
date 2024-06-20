@@ -32,7 +32,7 @@ const Card7 = ({ title, description,TextHead1,TextHead2,data,DataDropdown }) => 
               }
               
               <div className="d-flex flex-column">
-                <h6 className="mb-0 text-truncate">Nathan Wagner</h6>
+                <h6 className="mb-0 text-truncate">{data[key]['name']}</h6>
                 <small className="text-truncate text-muted">{data[key]['position']}</small>
               </div>
             </div>

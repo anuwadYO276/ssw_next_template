@@ -2,6 +2,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser,faBell } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -21,8 +23,7 @@ const Header = () => {
        
       <nav className="navbar navbar-expand-lg navbar-light bg-light-two">
         <Link href="/" className="navbar-brand">Next.js</Link>
-
-
+        {/* <FontAwesomeIcon icon={faCoffee} size="2x" color="green"/> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -48,25 +49,10 @@ const Header = () => {
             <li className="nav-item">
               <Link href="/datatable" className="nav-link">DataTable</Link>
             </li>
-            {/* <li className={`nav-item dropdown ${isDropdownOpen ? 'show' : ''}`}>
-              <div
-                className="nav-link dropdown-toggle"
-                role="button"
-                onClick={toggleDropdown}
-                aria-expanded={isDropdownOpen ? 'true' : 'false'}
-              >
-                Components
-              </div>
-              <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
-                <Link href="/pages/table" className="dropdown-item">Accordion</Link>
-                <Link href="/dropdown-item-2" className="dropdown-item">Alerts</Link>
-                <Link href="/dropdown-item-2" className="dropdown-item">Badges</Link>
-                <Link href="/dropdown-item-2" className="dropdown-item">Buttons</Link>
-                <Link href="/dropdown-item-2" className="dropdown-item">Cards</Link>
-              </div>
-            </li> */}
+
           </ul>
         </div>
+        <FontAwesomeIcon icon={faBell} size="lg" />
       </nav>
 
       </div>

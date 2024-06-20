@@ -1,6 +1,29 @@
-body{
-    background-color: #f8f9fa;
+
+/* D:\ssw_next_template\public\fonts\DB_Heavent.ttf*/
+
+/* @font-face {
+    font-family: 'DB_Heavent';
+    src: url('/fonts/DB_Heavent.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+
+@font-face {
+    font-family: 'Kanit_Regular';
+    src: url('/fonts/Kanit_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
+body {
+    font-family: 'Kanit_Regular', sans-serif!important;
+    background-color: #f8f9fa;
+    
+}
+
+
+
 .navbar-toggler {
     outline: none;
 }
@@ -11,6 +34,7 @@ body{
 .card-transform:hover {
     transform: scale(1.05);
     transition: transform 0.5s;
+    cursor: pointer;
     
 }
 
@@ -84,10 +108,34 @@ body{
     border-radius: 0.7rem;
 }
 
-/* .Chart-height{
-    min-height: 100.55px;
-} */
+small, .card-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #626262;
+}
 
-.small-text{
-    font-size: 0.7rem;
+.avatar {
+    position: relative;
+    width: 2.375rem;
+    height: 2.375rem;
+    cursor: pointer;
+}
+.avatar img {
+    width: 100%;
+    height: 100%;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: 0em solid transparent!important;
+    border-bottom: 0;
+    border-left: 0em solid transparent!important;
 }

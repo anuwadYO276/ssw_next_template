@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
 import Image from 'next/image';
 import { CSVLink } from 'react-csv';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisVertical,faTrash } from '@fortawesome/free-solid-svg-icons';
+import Dropdown_actions from './Dropdown_actions';
 
-const Datatable2 = ({ title,columns, data,details,headers}) => {
+const Datatable3 = ({ title,columns, data,details,headers,DataDropdown}) => {
   const [filterText, setFilterText] = useState('');
   const filteredItems = data.filter(
     item => item.title && item.title.toLowerCase().includes(filterText.toLowerCase()) || 
@@ -13,7 +16,19 @@ const Datatable2 = ({ title,columns, data,details,headers}) => {
 
   );
 
+const columnsWithEdit = [
+  ...columns,
+  {
+    name: 'Edit',
+    cell: row => (
+      <Dropdown_actions DataDropdown={DataDropdown} />
+    ),
+    ignoreRowClick: true,
+    allowOverflow: true,
+    button: true,
+  }
 
+];
 
   return (
     <>
@@ -21,31 +36,14 @@ const Datatable2 = ({ title,columns, data,details,headers}) => {
   <div className="card-body">
     <h5>{title}</h5>
     <p>{details}</p>
-    
-    <div className="row">
-      <div className="col-sm-6 col-md-10  mb-3">
-        <CSVLink data={filteredItems} headers={headers} filename="movie_list.csv" >
-          <button className="btn btn-primary" > Export CSV  </button>
-        </CSVLink>
-      </div>
-      <div className="col-sm-6 col-md-2  mb-3">
-       
-        <input
-            type="text"
-            placeholder="Search..."
-            value={filterText}
-            onChange={e => setFilterText(e.target.value)}
-            className="form-control"
-          />
-      </div>
-    </div>   
-        
+
         <DataTable
-          columns={columns}
+          columns={columnsWithEdit}
           data={filteredItems}
           pagination
           paginationPerPage={5}
           paginationRowsPerPageOptions={[5, 10, 15]}
+          className='dataTable custom-font-size'
         />
         
     </div> 
@@ -53,4 +51,4 @@ const Datatable2 = ({ title,columns, data,details,headers}) => {
     </>
   );
 }
-export default Datatable2;
+export default Datatable3;

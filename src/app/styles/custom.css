@@ -156,3 +156,13 @@ small, .card-text {
     }
     
 }
+
+.custom-font-size {
+    font-size: 18px; /* กำหนดขนาดตัวอักษรที่ต้องการ */
+}
+  
+  .custom-font-size .rdt_TableHead,
+  .custom-font-size .rdt_TableBody {
+    font-size: 18px; /* กำหนดขนาดตัวอักษรที่ต้องการในหัวตารางและตัวตาราง */
+  }
+  

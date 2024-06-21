@@ -79,17 +79,7 @@ export default function Datatable() {
     <>
       <br /><br /><br /><br />
       <div className="container-fluid">
-      <div className="mb-3">
-        {/* <Datatable1 title="Datatable 1" details={details} columns={columns} data={data} headers={headers}/> */}
-      </div>
-      {/* <div className="mb-3">
-        <Datatable2 
-            title="Datatable 2" 
-            details={details} 
-            columns={columns} 
-            data={data} 
-            headers={headers}/>
-      </div> */}
+
       <div className="mb-3">
         <Datatable3
             title="Table Basic" 
@@ -100,6 +90,19 @@ export default function Datatable() {
             DataDropdown={DataDropdown}
           />
       </div>
+      
+      <div className="mb-3">
+        <Datatable1 title="Datatable 1" details={details} columns={columns} data={data} headers={headers}/>
+      </div>
+      <div className="mb-3">
+        <Datatable2 
+            title="Datatable 2" 
+            details={details} 
+            columns={columns} 
+            data={data} 
+            headers={headers}/>
+      </div>
+      
       </div>
     </>
   );

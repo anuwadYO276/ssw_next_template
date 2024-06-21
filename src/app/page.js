@@ -119,7 +119,7 @@ export default function Home() {
     <>
     <br/><br/><br/><br/>
 
-    <div className='container'>
+    <div className='container-fluid'> 
     <div className="row">
     <div className="col-lg-6 mb-4">
       <Card3 

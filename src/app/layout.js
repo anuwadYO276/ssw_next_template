@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/custom.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Container } from "react-bootstrap";
 
 
 
@@ -20,6 +19,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body className={inter.className}>

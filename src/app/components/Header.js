@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser,faBell,faListUl } from '@fortawesome/free-solid-svg-icons';
+import { faUser,faBell,faListUl,faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,7 +19,7 @@ const Header = () => {
         <title>Next.js Bootstrap</title>
       </Head>
     <header className="css-er44ln">
-      <div className="container">
+      <div className="container-fluid">
        
       <nav className="navbar navbar-expand-lg navbar-light bg-light-two">
         <Link href="/" className="navbar-brand">Next.js</Link>
@@ -47,11 +47,15 @@ const Header = () => {
             <li className="nav-item">
               <Link href="/datatable" className="nav-link">DataTable</Link>
             </li>
+            <li className="nav-item">
+              <Link href="/accordion" className="nav-link">Accordion</Link>
+            </li>
 
           </ul> 
         </div>
         <div className="navbar-proflie">
-          <FontAwesomeIcon icon={faBell} size="lg" />
+          <FontAwesomeIcon icon={faBell} size="lg" className="ms-1" />
+          <FontAwesomeIcon icon={faCircleUser} size="lg" className="ms-3" />
         </div>
       </nav>
       

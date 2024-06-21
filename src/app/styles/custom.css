@@ -204,3 +204,6 @@ font-size: 18px; /* กำหนดขนาดตัวอักษรที่
     border-top-left-radius: var(--bs-accordion-border-radius);
     border-top-right-radius: var(--bs-accordion-border-radius);
 }
+.text-success-custom{
+    color: #09c509;
+}

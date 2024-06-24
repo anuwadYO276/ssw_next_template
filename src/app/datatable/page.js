@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import Datatable1 from '../components/datatable1';
 import Datatable2 from '../components/datatable2';
+import Datatable3 from '../components/datatable3';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisVertical, faEye, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Datatable() {
   const [data, setData] = useState([]);
@@ -47,6 +50,25 @@ export default function Datatable() {
     { label: 'body', key: 'body' },
     { label: 'User ID', key: 'userId' },
   ];
+
+  const DataDropdown = {
+    1: {
+      'ItemName': 'View',
+      'href': '#/action-1', 
+      'icon': faEye,  
+    },
+    2: {
+      'ItemName': 'Edit',
+      'href': '#/action-1', 
+      'icon': faPenToSquare,   
+    },
+    3: {
+      'ItemName': 'Delete',
+      'href': '#/action-1',
+      'icon': faTrash,    
+    },
+  }
+
   // const title = "Datatable Search";
   const details = "A lightweight, extendable, dependency-free javascript HTML table plugin.";
   if (loading) {
@@ -57,12 +79,30 @@ export default function Datatable() {
     <>
       <br /><br /><br /><br />
       <div className="container-fluid">
+
+      <div className="mb-3">
+        <Datatable3
+            title="Table Basic" 
+            details={details} 
+            columns={columns} 
+            data={data} 
+            headers={headers}
+            DataDropdown={DataDropdown}
+          />
+      </div>
+      
       <div className="mb-3">
         <Datatable1 title="Datatable 1" details={details} columns={columns} data={data} headers={headers}/>
       </div>
       <div className="mb-3">
-        <Datatable2 title="Datatable 2" details={details} columns={columns} data={data} headers={headers}/>
+        <Datatable2 
+            title="Datatable 2" 
+            details={details} 
+            columns={columns} 
+            data={data} 
+            headers={headers}/>
       </div>
+      
       </div>
     </>
   );

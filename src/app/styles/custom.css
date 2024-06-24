@@ -207,3 +207,10 @@ font-size: 18px; /* กำหนดขนาดตัวอักษรที่
 .text-success-custom{
     color: #09c509;
 }
+
+.card-header-custom {
+    padding: 1.25rem 1.50rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 0;
+}

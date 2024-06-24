@@ -38,9 +38,9 @@ const Header = () => {
 
         <div className={`collapse navbar-collapse ${isDropdownOpen ? 'show' : ''}`} id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link href="/" className="nav-link">Dashboard</Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link href="/cards" className="nav-link">Cards</Link>
             </li>

@@ -2,6 +2,9 @@ import { Inter } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import "./styles/custom.css";
+import "./styles/core.css";
+import "./styles/theme-default.css";
+import "./styles/demo.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 

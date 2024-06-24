@@ -75,7 +75,7 @@ export default function Page() {
 
     {/* <pre>{JSON.stringify(data.detail, null, 2)}</pre> */}
       <div className="row">
-        <div className="col-lg-8 mb-3">
+        <div className="col-lg-12 mb-3">
           <Card1 
             title="Congratulations John! 🎉"
             text="You have done 72% more sales today. Check your new badge in your profile."

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser,faBell,faListUl,faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import DropdownProfile from './DropdownProfile';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -50,12 +51,29 @@ const Header = () => {
             <li className="nav-item">
               <Link href="/accordion" className="nav-link">Accordion</Link>
             </li>
+            <li className="nav-item">
+            <DropdownProfile />
+            </li>
 
           </ul> 
         </div>
         <div className="navbar-proflie">
-          <FontAwesomeIcon icon={faBell} size="lg" className="ms-1" />
-          <FontAwesomeIcon icon={faCircleUser} size="lg" className="ms-3" />
+          
+        <div className="d-flex flex-wrap align-items-center justify-content-between gap-2">
+         
+         
+          <a className="nav-link dropdown-toggle hide-arrow" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+          <FontAwesomeIcon icon={faBell} size="2x" />
+          <span className="badge bg-danger rounded-pill badge-notifications">5</span>
+          </a>
+          
+        <DropdownProfile />
+
+        </div>
+
+        
+
+        
         </div>
       </nav>
       

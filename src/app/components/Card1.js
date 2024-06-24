@@ -5,7 +5,7 @@ import React from 'react';
 const Card1 = (props) => {
   return (
     <>
-    <div className="card-shadow">
+    <div className="card">
       <div className="d-flex align-items-end row">
         <div className="col-sm-7">
           <div className="card-body">

@@ -15,7 +15,7 @@ const iconcheckStatus = (status) => {
 
 const textcheckStatus = (status) => {
   if (status == 1) {
-    return "text-success-custom mb-0";
+    return "text-success mb-0";
   }
   return 'text-danger mb-0';
 };

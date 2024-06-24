@@ -15,12 +15,13 @@ const Card2 = (props) => {
         <div className="col-lg-6" key={index}>
 
 
-      <div className="card-shadow h-100">
-      <div className="card-header-custom d-flex align-items-center justify-content-between">
+      <div className="card h-100">
+      <div className="card-header d-flex align-items-center justify-content-between">
       <div className="card-title mb-0">
         <h5 className="m-0 me-2">{item.house_no}</h5>
         <small className="text-muted">{item.net_amount_average}</small>
       </div>
+      
       <FontAwesomeIcon icon={faEllipsisVertical} />
        
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import CardPea from './components/CardPea';
 import Card4 from './components/Card4';
 import Card7 from './components/Card7';
+import ChartCustom from './components/chart';
 
  
 
@@ -74,6 +75,35 @@ const data4 = {
   },
 };
 
+const dataChartx = {
+  labels: [ 'มิถุนายน  2566',
+            'กรกฎาคม  2566',
+            'สิงหาคม 2566',
+            'กันยายน 2566',
+            'ตุลาคม 2566',
+            'พฤศจิกายน 2566',
+            'ธันวาคม 2566',
+            'มกราคม 2567',
+            'กุมภาพันธ์ 2567',
+            'มีนาคม 2567',
+            'เมษายน 2567',
+            'พฤษภาคม 2567'
+          ],
+  datasets: [
+    {
+      label: 'ประวัติการชำระเงิน',
+      backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
+      borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+      borderWidth: 1,
+      data: [398.59, 339.39, 366.65
+            ,399.98, 525.55, 362.48
+            ,202.72, 242.46, 201.70
+            ,447.85, 697.86, 563.62
+
+      ],
+    },
+  ],
+};
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -131,13 +161,26 @@ export default function Home() {
       <br /><br /><br /><br />
       <h1>API Data</h1>
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      {/* <pre>{JSON.stringify(data.detail.detail_result, null, 2)}</pre> */}
       
       
       <div className='container-fluid'> 
     
    
+{/* <div className="row">
 
-<div className="row">
+<div className="col-lg-12 mb-4">
+  <div className="card-shadow">
+    <div className="card-body">
+  <ChartCustom type="line" data={dataChartx} width={300} height={0}/>
+    </div>
+  </div>
+</div>
+
+</div> */}
+
+
+{/* <div className="row">
 
 <div className="col-lg-3 mb-4">
   <Card7 
@@ -174,7 +217,52 @@ export default function Home() {
  </div>
 </div>
 
+</div> */}
 
+
+<div className='row mt-5'>
+  <div className='col-lg-12 mb-4'> 
+    <h3>ผลการตรวจสอบ</h3>
+  </div>
+  <div className='col-lg-12 mb-4'> 
+    <div className="card-shadow">
+    <div className="card-body">
+    <table className="table table-bordered">
+      <thead>
+        <tr align="center">
+          <th scope="col">ลำดับ</th>
+          <th scope="col">รายการ</th>
+          <th scope="col">เกณฑ์</th>
+          <th scope="col">รายละเอียด</th>
+          <th scope="col">กลุ่ม</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          data.detail.detail_result.map((item, index) => (
+            <tr key={index}>
+              <th scope="row"><div align='center'>{index + 1}</div></th>
+              <td>{item.section}</td>
+              <td>{item.criteria}</td>
+              <td>{item.description}</td>
+              <td><div align='center'>{item.group}</div></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    </div>
+    </div>
+  </div>
+
+  
+  
+</div>
+
+<div className='row mt-5'>
+  <div className='col-lg-12 mb-4'> 
+    <h3>ประวัติการชำระเงิน</h3>
+  </div>
       {
         data.detail.history.map((item, index) => (
           <div key={index} className="col-lg-3 mb-4">

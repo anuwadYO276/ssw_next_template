@@ -8,7 +8,7 @@ export default function Page() {
       <br/><br/><br/><br/>
       <h1>Page</h1>
 
-
+{/* 
 <div className='container'>
  
 <div className='row'>
@@ -108,7 +108,7 @@ export default function Page() {
 </div>
 </div> 
    
-</div>
+</div> */}
 
 
     </div>

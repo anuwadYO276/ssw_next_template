@@ -1,68 +1,84 @@
-// components/Dropdown.js
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import Link from 'next/link';
+import { useState, useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faCog, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
-const DropdownProfile = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+const DropdownProfile = (props) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
+  // Function to toggle the dropdown state
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
+  // Function to handle clicks outside of the dropdown
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="dropdown">
-        <span className="avatar avatar-online ms-3" id="dropdownMenuButton"
-            aria-haspopup="true"
-            aria-expanded={dropdownOpen}
-            onClick={toggleDropdown}>
-            <img src="http://areadiv.com/img/img-005.png" alt="" className="w-px-40 h-auto rounded-circle"/>
-        </span>
-      <div className={`dropdown-menu${dropdownOpen ? ' show' : ''} `} aria-labelledby="dropdownMenuButton">
-        <a className="dropdown-item" href="pages-account-settings-account.html">
-          <div className="d-flex">
-            <div className="flex-shrink-0 me-3">
-              <div className="avatar avatar-online">
-                <img src="http://areadiv.com/img/img-005.png" alt="" className="w-px-40 h-auto rounded-circle"/>
-              </div>
-            </div>
-            <div className="flex-grow-1">
-              <span className="fw-medium d-block">John Doe</span>
-              <small className="text-muted">Admin</small>
-            </div>
+    <>
+      <li className="nav-item navbar-dropdown dropdown-user dropdown" ref={dropdownRef}>
+        <span className="nav-link dropdown-toggle hide-arrow" onClick={toggleDropdown}>
+          <div className="avatar avatar-online">
+            <img src={props.img} alt="" className="w-px-40 h-auto rounded-circle" />
           </div>
-        </a>
-        <div className="dropdown-divider"></div>
-        <a className="dropdown-item" href="pages-profile-user.html">
-          <i className="bx bx-user me-2"></i>
-          <span className="align-middle">My Profile</span>
-        </a>
-        <a className="dropdown-item" href="pages-account-settings-account.html">
-          <i className="bx bx-cog me-2"></i>
-          <span className="align-middle">Settings</span>
-        </a>
-        <a className="dropdown-item" href="pages-account-settings-billing.html">
-          <span className="d-flex align-items-center align-middle">
-            <i className="flex-shrink-0 bx bx-credit-card me-2"></i>
-            <span className="flex-grow-1 align-middle">Billing</span>
-            <span className="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-          </span>
-        </a>
-        <div className="dropdown-divider"></div>
-        <a className="dropdown-item" href="pages-faq.html">
-          <i className="bx bx-help-circle me-2"></i>
-          <span className="align-middle">FAQ</span>
-        </a>
-        <a className="dropdown-item" href="pages-pricing.html">
-          <i className="bx bx-dollar me-2"></i>
-          <span className="align-middle">Pricing</span>
-        </a>
-        <div className="dropdown-divider"></div>
-        <a className="dropdown-item" href="auth-login-cover.html" target="_blank">
-          <i className="bx bx-power-off me-2"></i>
-          <span className="align-middle">Log Out</span>
-        </a>
-      </div>
-    </div>
+        </span>
+
+        {isDropdownOpen && (
+          <ul className="dropdown-menu dropdown-menu-end show" data-bs-popper="static">
+            <li>
+              <Link href="#" className="dropdown-item">
+                <div className="d-flex">
+                  <div className="flex-shrink-0 me-3">
+                    <div className="avatar avatar-online">
+                      <img src={props.img} alt="" className="w-px-40 h-auto rounded-circle" />
+                    </div>
+                  </div>
+                  <div className="flex-grow-1">
+                    <span className="fw-medium d-block">{props.name}</span>
+                    <small className="text-muted">{props.role}</small>
+                  </div>
+                </div>
+              </Link>
+            </li>
+
+            <li>
+              <div className="dropdown-divider"></div>
+            </li>
+
+            <li>
+              <Link href="#" className="dropdown-item">
+                <FontAwesomeIcon icon={faUser} className="dropdown-icon me-2" />
+                <span>Profile</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="dropdown-item">
+                <FontAwesomeIcon icon={faCog} className="dropdown-icon me-2" />
+                <span>Settings</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="dropdown-item">
+                <FontAwesomeIcon icon={faPowerOff} className="dropdown-icon me-2" />
+                <span>Logout</span>
+              </Link>
+            </li>
+          </ul>
+        )}
+      </li>
+    </>
   );
 };
 

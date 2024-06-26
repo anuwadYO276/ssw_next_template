@@ -16,56 +16,38 @@
     
 }
 
-
-
-.css-er44ln {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    position: fixed;
-    box-shadow: 45px 76px 113px 7px rgba(112, 144, 176, 0.08);
-    background: white;
-    -webkit-filter: none;
-    filter: none;
-    -webkit-background-position: center;
-    background-position: center;
-    -webkit-background-size: cover;
-    background-size: cover;
-    z-index: 200;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    line-height: 25.6px;
-    -webkit-margin-start: auto;
-    margin-inline-start: auto;
-    -webkit-margin-end: auto;
-    margin-inline-end: auto;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0px);
-    -moz-transform: translate(-50%, 0px);
-    -ms-transform: translate(-50%, 0px);
-    transform: translate(-50%, 0px);
-    width: 100%;
-    top: 0px;
-}
-.navbar-proflie{
+.navbar-dexMenu{
     display: inline;
 }
-.navbar-togglerx {
+.navbar-moMenu{
     display: none;
 }
 
 @media screen and (max-width: 768px) {
-    .navbar-togglerx {
-        display: inline;
-    }
-    .navbar-proflie {
+    .navbar-dexMenu {
         display: none;
+    }
+    .navbar-moMenu {
+        display: inline;
     }
     
 }
 
+.scrollable-container {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow: hidden; /* Hide the default scrollbars */
+  }
+  
+  .list-group-item {
+    padding: 10px; /* Add padding to each list item */
+  }
+  
+  .dropdown-divider {
+    border-top: 1px solid #e9ecef;
+    margin: 0.5rem 0;
+  }
+
+  
 /* .dropdown-toggle::after {
     display: inline-block;
     margin-left: .255em;
@@ -76,4 +58,13 @@
     border-bottom: 0;
     border-left: 0em solid transparent!important;
 } */
+
+  
+.authentication-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
 

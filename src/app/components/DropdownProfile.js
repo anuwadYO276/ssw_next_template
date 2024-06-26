@@ -52,11 +52,9 @@ const DropdownProfile = (props) => {
                 </div>
               </Link>
             </li>
-
             <li>
               <div className="dropdown-divider"></div>
             </li>
-
             <li>
               <Link href="#" className="dropdown-item">
                 <FontAwesomeIcon icon={faUser} className="dropdown-icon me-2" />
@@ -70,7 +68,7 @@ const DropdownProfile = (props) => {
               </Link>
             </li>
             <li>
-              <Link href="#" className="dropdown-item">
+              <Link href="/login" className="dropdown-item">
                 <FontAwesomeIcon icon={faPowerOff} className="dropdown-icon me-2" />
                 <span>Logout</span>
               </Link>

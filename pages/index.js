@@ -1,9 +1,9 @@
-import MyComponent from '../components/MyComponent';
+import API_Center_Component from "../components/API_Center_Component";
 
 export default function Home() {
   return (
     <div>
-      <MyComponent />
+      <API_Center_Component />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function MyComponent() {
+export default function API_Center_Component() {
   const [helloMessage, setHelloMessage] = useState('Getting hello data, please wait...');
   const [goodbyeMessage, setGoodbyeMessage] = useState('Getting goodbye data, please wait...');
 

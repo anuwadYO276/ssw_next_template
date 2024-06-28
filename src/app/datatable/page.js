@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import DataTable1 from '../components/DataTable1';
 
+
 export default function Page() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);

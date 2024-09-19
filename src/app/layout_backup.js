@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* {pathname !== "/login" && <Header />} */}
+        {pathname !== "/login" && <Header />}
         <main className="mt-3">
           <div className="container-fluid">
             {children}

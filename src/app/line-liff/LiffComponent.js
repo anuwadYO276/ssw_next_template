@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import liff from '@line/liff';
 
-export default function LiffComponent() {
+export default function LiffComponent({ setUserId }) {  // รับฟังก์ชัน setUserId จาก props
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState(null);
 
@@ -17,6 +17,7 @@ export default function LiffComponent() {
         } else {
           const profile = await liff.getProfile();
           setProfile(profile);
+          setUserId(profile.userId);  // ส่ง userId ไปยัง parent
         }
       } catch (err) {
         console.error('LIFF Initialization Failed', err);
@@ -25,7 +26,7 @@ export default function LiffComponent() {
     };
 
     initializeLiff();
-  }, []);
+  }, [setUserId]);  // เพิ่ม dependency ของ setUserId
 
   const handleLogout = () => {
     liff.logout();

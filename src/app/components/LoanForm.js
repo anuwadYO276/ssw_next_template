@@ -1,22 +1,16 @@
+// D:\ssw_next_template\src\app\components\LoanForm.js
+
 import React, { useState } from 'react';
 import ConsentSection from './ConsentSection.js';
 import LiffComponent from '../line-liff/LiffComponent';
 
-export default function LoanForm() {
+export default function LoanForm({ handleSubmit, loading }) {
   const [fullname, setFullname] = useState('');
   const [phone, setPhone] = useState('');
   const [asset, setAsset] = useState('');
   const [consent, setConsent] = useState(false);
+  const [userId, setUserId] = useState('');  // เพิ่ม state สำหรับ userId
 
-  const handleSubmit = () => {
-    if (!fullname || !phone || !asset || !consent) {
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน และยินยอมก่อนส่งข้อมูล');
-      return;
-    }
-
-    // ส่งข้อมูล
-    alert('ข้อมูลถูกส่งเรียบร้อยแล้ว');
-  };
 
   return (
     <div className="card card-body">
@@ -60,11 +54,17 @@ export default function LoanForm() {
       {/* Section ความยินยอม */}
       <ConsentSection consent={consent} setConsent={setConsent} />
 
-      
-      <LiffComponent />
+      <LiffComponent setUserId={setUserId} />
 
       <div className="mb-3">
-        <button type="button" className="btn btn-primary" onClick={handleSubmit}>ส่งข้อมูล</button>
+        <button 
+          type="button" 
+          className="btn btn-primary" 
+          onClick={() => handleSubmit(fullname, phone, consent, userId,asset, '', '')}
+          disabled={loading}
+        >
+          {loading ? 'ส่งข้อมูล...' : 'ส่งข้อมูล'}
+        </button>
       </div>
     </div>
   );

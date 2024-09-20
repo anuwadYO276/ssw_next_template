@@ -1,46 +1,16 @@
+// D:\ssw_next_template\src\app\components\InsuranceForm.js
+
 import React, { useState } from 'react';
-import axios from 'axios';
 import ConsentSection from './ConsentSection.js';
 import LiffComponent from '../line-liff/LiffComponent';
 
-export default function InsuranceForm() {
+export default function InsuranceForm({ handleSubmit, loading }) {
   const [fullname, setFullname] = useState('');
   const [phone, setPhone] = useState('');
-  const [insuranceType, setInsuranceType] = useState('');
+  const [insuranceType, setInsuranceType] = useState('1');
   const [interestedInsurance, setInterestedInsurance] = useState('');
   const [consent, setConsent] = useState(false);
-  const [loading, setLoading] = useState(false); // State for loading
-
-  const handleSubmit = async () => {
-    // if (!fullname || !phone || !insuranceType || !interestedInsurance || !consent) {
-    if (!fullname || !phone ){
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน และยินยอมก่อนส่งข้อมูลx');
-      return;
-    }
-
-    try {
-      setLoading(true); 
-      const response = await axios.post('http://localhost:8888/send-message-notify', {
-        fullname: fullname,
-        phone: phone,
-        insurance_type: insuranceType,
-        interested_insurance: interestedInsurance,
-        policy: consent,
-        userId
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer SA7gSgVwEt5jgwB7ypljaLyfgfqU22M2btplCMp+zfIETupLJnlHkxYUOGKh2mWCBs3Qk1H8jfe3KIYBMC5twQpOGmst2ko/Y2E4pUcG42iHNh5QdqoLuHF7lt9qpw5aEfoNshfee2pcCiC+kBoLjwdB04t89/1O/w1cDnyilFU='
-        }
-      });
-      alert('ข้อมูลถูกส่งเรียบร้อยแล้ว');
-    } catch (error) {
-      console.error('Error sending data', error);
-      alert('เกิดข้อผิดพลาดในการส่งข้อมูล');
-    } finally {
-      setLoading(false); // End loading
-    }
-  };
+  const [userId, setUserId] = useState('');
 
   return (
     <div className="card card-body">
@@ -72,7 +42,7 @@ export default function InsuranceForm() {
           id="insurance_type" 
           value={insuranceType} 
           onChange={(e) => setInsuranceType(e.target.value)}>
-          <option value="1">ประกันรถยนต์</option>
+          <option value="1" selected>ประกันรถยนต์</option> 
         </select>
       </div>
       <div className="mb-3">
@@ -90,16 +60,16 @@ export default function InsuranceForm() {
         </select>
       </div>
 
-      {/* Section ความยินยอม */}
       <ConsentSection consent={consent} setConsent={setConsent} />
+      <LiffComponent setUserId={setUserId} />
 
-      <LiffComponent />
+
       <div className="mb-3">
         <button 
           type="button" 
           className="btn btn-primary" 
-          onClick={handleSubmit}
-          disabled={loading} // Disable button while loading
+          onClick={() => handleSubmit(fullname, phone, consent, userId,'', insuranceType, interestedInsurance)}
+          disabled={loading}
         >
           {loading ? 'ส่งข้อมูล...' : 'ส่งข้อมูล'}
         </button>
